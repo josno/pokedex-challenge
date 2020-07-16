@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import PokemonInfo from "./components/PokemonInfo";
+import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
 
 function App() {
 	const [pokemonId, setPokemonId] = useState(1);

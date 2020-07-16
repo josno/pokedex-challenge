@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
+import Pokedex from "./components/Pokedex/Pokedex";
 import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
 
 	return (
 		<div className='App'>
-			<PokemonInfo pokemonId={pokemonId} />
+			<Pokedex>
+				<PokemonInfo pokemonId={pokemonId} />
+			</Pokedex>
 		</div>
 	);
 }

@@ -30,8 +30,7 @@ function App() {
 	};
 
 	const setNextPokemon = () => {
-		//last index in API is 963
-		if (listIndex === 963) {
+		if (listIndex === pokemonList.length - 1) {
 			alert("You reached the end of the list.");
 		} else {
 			setCurrentPokemonUrl(pokemonList[listIndex + 1].url);

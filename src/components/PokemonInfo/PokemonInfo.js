@@ -23,13 +23,20 @@ const PokemonInfo = (props) => {
 	}, [props.pokemonId]);
 
 	return (
-		<div>
-			<img src={currentPokemon.imgUrl} alt={`${currentPokemon.name} Default`} />
-			<h1>{currentPokemon.name}</h1>
-			<ul>
-				<li>Weight: {currentPokemon.weight}</li>
-				<li>Height: {currentPokemon.height}</li>
-			</ul>
+		<div className='pokemon-details-wrapper'>
+			<div className='pokemon-details-container'>
+				<div className='image-container'>
+					<img
+						src={currentPokemon.imgUrl}
+						alt={`${currentPokemon.name} Default`}
+					/>
+				</div>
+				<h1 className='details-text'>{currentPokemon.name}</h1>
+				<ul className='details-text'>
+					<li>Weight: {currentPokemon.weight}</li>
+					<li>Height: {currentPokemon.height}</li>
+				</ul>
+			</div>
 		</div>
 	);
 };

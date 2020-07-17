@@ -12,14 +12,17 @@ const PokemonInfo = (props) => {
 	useEffect(() => {
 		fetch(`https://pokeapi.co/api/v2/pokemon/${props.pokemonId}`)
 			.then((response) => response.json())
-			.then((responseJson) =>
+			.then((responseJson) => {
+				const capitalizedName =
+					responseJson.name.charAt(0).toUpperCase() +
+					responseJson.name.slice(1);
 				setCurrentPokemon({
-					name: responseJson.name,
+					name: capitalizedName,
 					weight: responseJson.weight,
 					height: responseJson.height,
 					imgUrl: responseJson.sprites.front_default,
-				})
-			);
+				});
+			});
 	}, [props.pokemonId]);
 
 	return (
@@ -31,7 +34,9 @@ const PokemonInfo = (props) => {
 						alt={`${currentPokemon.name} Default`}
 					/>
 				</div>
-				<h1 className='details-text'>{currentPokemon.name}</h1>
+				<h1 className='details-text'>
+					{`#${props.pokemonId}`} {currentPokemon.name}
+				</h1>
 				<ul className='details-text'>
 					<li>Weight: {currentPokemon.weight}</li>
 					<li>Height: {currentPokemon.height}</li>

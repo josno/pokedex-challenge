@@ -8,11 +8,13 @@
 	border: 5px solid black;
 	border-radius: 20px;
 	box-shadow: 10px 5px 16px darkslategrey;
-	height: 100%;
+	height: 700px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
 	max-height: 850px;
 	max-width: 550px;
+	width: 360px;
 }
 
 .pokedex-three-lights {

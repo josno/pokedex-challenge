@@ -18,7 +18,7 @@ const Pokedex = (props) => {
 					<div className='border-line-two' />
 					<div className='border-line-three' />
 				</div>
-				{props.children}
+				<div className='pokemon-details-wrapper'>{props.children}</div>
 			</div>
 		</div>
 	);

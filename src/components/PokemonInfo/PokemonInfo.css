@@ -9,11 +9,16 @@ ul {
 }
 
 .pokemon-details-container {
-	margin: 10px auto;
-	border: 1px solid black;
-	width: 80%;
-	max-width: 400px;
+	align-items: center;
 	background-color: #262927;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	height: 250px;
+	justify-content: center;
+	margin: 10px auto;
+	max-width: 400px;
+	width: 80%;
 }
 
 .details-text {

@@ -1,0 +1,18 @@
+.arrow-button-box {
+	background-color: transparent;
+	border: none;
+	height: 80px;
+	width: 100px;
+}
+
+.arrow-button-box:hover {
+	cursor: pointer;
+	color: transparent;
+}
+
+.arrow-style {
+	fill: yellow;
+	height: 100%;
+	width: 100%;
+	stroke-width: 30;
+}

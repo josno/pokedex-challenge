@@ -3,18 +3,19 @@ import "./App.css";
 
 import Pokedex from "./components/Pokedex/Pokedex";
 import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
+import Buttons from "./components/Buttons/Buttons";
 
 function App() {
-	const [currentPokemon, setCurrentPokemon] = useState("");
+	const [currentPokemonUrl, setCurrentPokemonUrl] = useState("");
 	const [listIndex, setListIndex] = useState(0);
 	const [pokemonList, setPokemonList] = useState([]);
 
 	useEffect(() => {
-		fetch("https://pokeapi.co/api/v2/pokemon?limit=964")
+		fetch("https://pokeapi.co/api/v2/pokemon?limit=963")
 			.then((res) => res.json())
 			.then((resjson) => {
 				setPokemonList(resjson.results);
-				setCurrentPokemon(resjson.results[0].url);
+				setCurrentPokemonUrl(resjson.results[0].url);
 				//Comment - listIndex will be loaded for current Pokemon after useEffect runs
 			});
 	}, []);
@@ -23,16 +24,17 @@ function App() {
 		if (listIndex === 0) {
 			alert("You can't go less than #1");
 		} else {
-			setCurrentPokemon(pokemonList[listIndex - 1].url);
+			setCurrentPokemonUrl(pokemonList[listIndex - 1].url);
 			setListIndex(listIndex - 1);
 		}
 	};
 
-	const moveToNextPokemon = () => {
+	const setNextPokemon = () => {
+		//last index in API is 963
 		if (listIndex === 963) {
 			alert("You reached the end of the list.");
 		} else {
-			setCurrentPokemon(pokemonList[listIndex + 1].url);
+			setCurrentPokemonUrl(pokemonList[listIndex + 1].url);
 			setListIndex(listIndex + 1);
 		}
 	};
@@ -40,7 +42,11 @@ function App() {
 	return (
 		<div className='App'>
 			<Pokedex>
-				<PokemonInfo pokeUrl={currentPokemon} />
+				<PokemonInfo pokeUrl={currentPokemonUrl} />
+				<Buttons
+					goToPreviousPokemon={setPreviousPokemon}
+					goToNextPokemon={setNextPokemon}
+				/>
 			</Pokedex>
 		</div>
 	);

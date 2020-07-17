@@ -8,39 +8,51 @@ const PokemonInfo = (props) => {
 		height: "",
 		imgUrl: "",
 	});
+	const [loading, setLoading] = useState(true);
+
+	//set loading here
 
 	useEffect(() => {
-		fetch(`https://pokeapi.co/api/v2/pokemon/${props.pokemonId}`)
+		fetch(props.pokeUrl)
 			.then((response) => response.json())
 			.then((responseJson) => {
 				const capitalizedName =
 					responseJson.name.charAt(0).toUpperCase() +
 					responseJson.name.slice(1);
 				setCurrentPokemon({
+					id: responseJson.id,
 					name: capitalizedName,
 					weight: responseJson.weight,
 					height: responseJson.height,
 					imgUrl: responseJson.sprites.front_default,
 				});
+				setLoading(false);
 			});
-	}, [props.pokemonId]);
+	}, [props.pokeUrl]);
 
 	return (
 		<div className='pokemon-details-wrapper'>
 			<div className='pokemon-details-container'>
-				<div className='image-container'>
-					<img
-						src={currentPokemon.imgUrl}
-						alt={`${currentPokemon.name} Default`}
-					/>
-				</div>
-				<h1 className='details-text'>
-					{`#${props.pokemonId}`} {currentPokemon.name}
-				</h1>
-				<ul className='details-text'>
-					<li>Weight: {currentPokemon.weight}</li>
-					<li>Height: {currentPokemon.height}</li>
-				</ul>
+				{loading ? (
+					<div className='loading-text details-text'> Loading...</div>
+				) : (
+					<>
+						{/* Comment - No Image? Render something else */}
+						<div className='image-container'>
+							<img
+								src={currentPokemon.imgUrl}
+								alt={`${currentPokemon.name} Default`}
+							/>
+						</div>
+						<h1 className='details-text'>
+							{`#${currentPokemon.id}`} {currentPokemon.name}
+						</h1>
+						<ul className='details-text'>
+							<li>Weight: {currentPokemon.weight}</li>
+							<li>Height: {currentPokemon.height}</li>
+						</ul>
+					</>
+				)}
 			</div>
 		</div>
 	);

@@ -1,5 +1,6 @@
-button {
+button:hover {
 	cursor: pointer;
+	border: none;
 }
 
 .arrow-button-box {
@@ -37,10 +38,14 @@ button {
 	font-weight: bold;
 }
 
-.open-search-button:hover {
-	border: none;
+.search-buttons {
+	border: 1px solid black;
+	/* height: 70%; */
+	width: 40%;
+	border-radius: 15px;
 }
 
-.open-search-button:active {
-	background-color: #18699e;
+.search-button-style {
+	height: 2em;
+	width: 2em;
 }

@@ -1,0 +1,26 @@
+.search-input {
+	border-radius: 10px;
+	height: 40px;
+	margin: 5px;
+	width: 200px;
+}
+
+.search-container {
+	display: flex;
+	padding: 8px;
+}
+
+.pokemon-autocomplete-list {
+	background-color: white;
+	border: 1px solid white;
+	bottom: -187px;
+	list-style: none;
+	position: absolute;
+	padding-left: 10px;
+	text-align: left;
+	margin: 0px;
+	left: 19px;
+	height: 200px;
+	overflow: scroll;
+	width: 190px;
+}

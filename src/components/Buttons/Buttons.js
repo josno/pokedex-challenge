@@ -7,11 +7,9 @@ const Buttons = (props) => {
 		<div className='button-container'>
 			<button className={props.buttonClassName} onClick={() => props.goBack()}>
 				{props.goBackIcon}
-				{/* <AiOutlineCaretLeft className='arrow-style' /> */}
 			</button>
 			<button className={props.buttonClassName} onClick={() => props.goTo()}>
 				{props.goToIcon}
-				{/* <AiOutlineCaretRight className='arrow-style' /> */}
 			</button>
 		</div>
 	);

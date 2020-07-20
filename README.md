@@ -18,8 +18,6 @@ Currently in development
 
 :white_check_mark: An interface for searching for a Pokemon by name
 :white_check_mark: Not included in the GUI sample, must provide a creative solution
-:white_check_mark: A way to go to the next Pokemon (relative to the one currently displaying)
-:white_check_mark: A way to get the previous Pokemon (relative to the one currently displaying)
 
 ### Installation Instructions
 

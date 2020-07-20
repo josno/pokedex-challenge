@@ -58,7 +58,10 @@ function App() {
 		<div className='App'>
 			<Pokedex>
 				<PokemonInfo pokeUrl={currentPokemonUrl} />
-
+				<Searchbar
+					onSearch={lookUpPokemon}
+					pokemonNameList={pokemonList.map((p) => p.name)}
+				/>
 				{/* For Navigation Buttons */}
 				<div className='button-container'>
 					<Button
@@ -72,10 +75,6 @@ function App() {
 						buttonClassName={"arrow-button-box"}
 					/>
 				</div>
-				<Searchbar
-					onSearch={lookUpPokemon}
-					pokemonNameList={pokemonList.map((p) => p.name)}
-				/>
 			</Pokedex>
 		</div>
 	);

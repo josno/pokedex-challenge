@@ -6,6 +6,8 @@ import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
 import Searchbar from "./components/Searchbar/Searchbar";
 import Buttons from "./components/Buttons/Buttons";
 
+import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
+
 function App() {
 	const [currentPokemonUrl, setCurrentPokemonUrl] = useState("");
 	const [listIndex, setListIndex] = useState(0);
@@ -55,8 +57,11 @@ function App() {
 			<Pokedex>
 				<PokemonInfo pokeUrl={currentPokemonUrl} />
 				<Buttons
-					goToPreviousPokemon={setPreviousPokemon}
-					goToNextPokemon={setNextPokemon}
+					goBack={setPreviousPokemon}
+					goTo={setNextPokemon}
+					goToIcon={<AiOutlineCaretRight className='arrow-style' />}
+					goBackIcon={<AiOutlineCaretLeft className='arrow-style' />}
+					buttonClassName={"arrow-button-box"}
 				/>
 				<Searchbar onSearch={lookUpPokemon} />
 			</Pokedex>

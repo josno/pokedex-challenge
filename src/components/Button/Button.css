@@ -1,0 +1,46 @@
+button {
+	cursor: pointer;
+}
+
+.arrow-button-box {
+	background-color: transparent;
+	border: none;
+	height: 80px;
+	width: 100px;
+}
+
+.arrow-button-box:hover {
+	color: transparent;
+}
+
+.arrow-style {
+	fill: yellow;
+	height: 100%;
+	width: 100%;
+	stroke-width: 30;
+}
+
+.button-container {
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+	margin: 0px auto;
+}
+
+.open-search-button {
+	border-radius: 10px;
+	background-color: #2cacfd;
+	border: 1px solid black;
+	height: 50px;
+	width: 200px;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.open-search-button:hover {
+	border: none;
+}
+
+.open-search-button:active {
+	background-color: #18699e;
+}

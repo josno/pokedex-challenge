@@ -1,12 +1,17 @@
 .search-input {
 	border-radius: 10px;
-	height: 40px;
-	margin: 5px;
+	height: 100%;
+	width: 95%;
+}
+
+.search-input-container {
 	width: 200px;
 }
 
 .search-container {
 	display: flex;
+	height: 60px;
+	justify-content: space-evenly;
 	padding: 8px;
 }
 
@@ -27,4 +32,11 @@
 
 .autocomplete-choice:hover {
 	background-color: yellow;
+}
+
+.search-buttons-container {
+	width: 40%;
+	display: flex;
+	justify-content: space-evenly;
+	height: 100%;
 }

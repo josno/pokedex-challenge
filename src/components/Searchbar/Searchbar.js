@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
+
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import "./Searchbar.css";
 
 const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
@@ -11,6 +13,28 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 		setPokemon(pokemon);
 		setDisplayAutocomplete(!displayAutocomplete);
 	};
+
+	const handleSearch = () => {
+		onSearch(pokemon);
+		setPokemon("");
+	};
+
+	const pokemonFilteredList = (
+		<ul className='pokemon-autocomplete-list'>
+			{pokemonNameList
+				.filter((p) => p.indexOf(pokemon.toLowerCase().trim()) > -1)
+				.map((pokemonName, index) => (
+					<li
+						className='autocomplete-choice'
+						key={index}
+						onClick={() => setAutocompleteInput(pokemonName)}
+						tabIndex='0'
+					>
+						{pokemonName}
+					</li>
+				))}
+		</ul>
+	);
 
 	return (
 		<div className='search-bar-wrapper'>
@@ -24,32 +48,25 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 							onClick={() => setDisplayAutocomplete(!displayAutocomplete)}
 						/>
 
-						{displayAutocomplete && (
-							<ul className='pokemon-autocomplete-list'>
-								{pokemonNameList
-									.filter((p) => p.indexOf(pokemon.toLowerCase().trim()) > -1)
-									.map((pokemonName, index) => (
-										<li
-											className='autocomplete-choice'
-											key={index}
-											onClick={() => setAutocompleteInput(pokemonName)}
-											tabIndex='0'
-										>
-											{pokemonName}
-										</li>
-									))}
-							</ul>
-						)}
+						{displayAutocomplete && pokemonFilteredList}
 					</div>
 
-					<Button
-						handleClick={() => setSearchbarToggle(!searchbarToggle)}
-						renderedButton={"Cancel"}
-					/>
-					<Button
-						renderedButton={"Search"}
-						handleClick={() => onSearch(pokemon)}
-					/>
+					<div className='search-buttons-container'>
+						<Button
+							buttonClassName={"search-buttons"}
+							handleClick={() => setSearchbarToggle(!searchbarToggle)}
+							renderedButton={
+								<AiOutlineClose className='search-button-style' />
+							}
+						/>
+						<Button
+							buttonClassName={"search-buttons"}
+							renderedButton={
+								<AiOutlineSearch className='search-button-style' />
+							}
+							handleClick={() => handleSearch(pokemon)}
+						/>
+					</div>
 				</div>
 			) : (
 				<Button

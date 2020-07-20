@@ -24,3 +24,7 @@
 	overflow: scroll;
 	width: 190px;
 }
+
+.autocomplete-choice:hover {
+	background-color: yellow;
+}

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import Buttons from "../Buttons/Buttons";
+import Button from "../Button/Button";
 import "./Searchbar.css";
 
-const Searchbar = ({ onSearch, pokemonOptions = [] }) => {
+const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 	const [pokemon, setPokemon] = useState("");
 	const [searchbarToggle, setSearchbarToggle] = useState(false);
-	const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 	const [displayAutocomplete, setDisplayAutocomplete] = useState(false);
+
+	const setAutocompleteInput = (pokemon) => {
+		setPokemon(pokemon);
+	};
 
 	return (
 		<div className='search-bar-wrapper'>
@@ -22,22 +25,36 @@ const Searchbar = ({ onSearch, pokemonOptions = [] }) => {
 
 						{displayAutocomplete && (
 							<ul className='pokemon-autocomplete-list'>
-								{pokemonOptions.map((pokemon, index) => (
-									<li key={index}>{pokemon}</li>
-								))}
+								{pokemonNameList
+									.filter((p) => p.indexOf(pokemon.toLowerCase().trim()) > -1)
+									.map((pokemonName, index) => (
+										<li
+											className='autocomplete-choice'
+											key={index}
+											onClick={() => setAutocompleteInput(pokemonName)}
+											tabIndex='0'
+										>
+											{pokemonName}
+										</li>
+									))}
 							</ul>
 						)}
 					</div>
 
-					<Buttons
-						goBack={() => setSearchbarToggle(!searchbarToggle)}
-						goTo={() => onSearch(pokemon)}
-						goToIcon={"Search"}
-						goBackIcon={"Cancel"}
+					<Button
+						handleClick={() => setSearchbarToggle(!searchbarToggle)}
+						renderedButton={"Cancel"}
+					/>
+					<Button
+						renderedButton={"Search"}
+						handleClick={() => onSearch(pokemon)}
 					/>
 				</div>
 			) : (
-				<button onClick={() => setSearchbarToggle(!searchbarToggle)}>
+				<button
+					className='open-search-button'
+					onClick={() => setSearchbarToggle(!searchbarToggle)}
+				>
 					Search Database
 				</button>
 			)}

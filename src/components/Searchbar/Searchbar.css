@@ -1,7 +1,8 @@
 .search-input {
-	border-radius: 10px;
+	border: 1px solid black;
 	height: 100%;
-	width: 95%;
+	padding-left: 10px;
+	width: 180px;
 }
 
 .search-input-container {
@@ -9,6 +10,7 @@
 }
 
 .search-container {
+	animation: fadeIn ease 20s;
 	display: flex;
 	height: 60px;
 	justify-content: space-evenly;
@@ -17,17 +19,20 @@
 
 .pokemon-autocomplete-list {
 	background-color: white;
-	border: 1px solid white;
-	bottom: -187px;
+	border-top: none;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	bottom: -5px;
 	list-style: none;
 	position: absolute;
 	padding-left: 10px;
 	text-align: left;
 	margin: 0px;
-	left: 19px;
-	height: 200px;
-	overflow: scroll;
-	width: 190px;
+	left: 20px;
+	height: 100px;
+	overflow-y: scroll;
+	width: 180px;
 }
 
 .autocomplete-choice:hover {

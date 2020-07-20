@@ -5,7 +5,6 @@
 
 .pokedex-container {
 	background-color: #dc082e;
-	border: 5px solid black;
 	border-radius: 20px;
 	box-shadow: 10px 5px 16px darkslategrey;
 	height: 700px;
@@ -33,7 +32,7 @@
 
 .big-blue-light {
 	background-color: #2cacfd;
-	border: 2px solid black;
+	box-shadow: 6px 3px #18699e;
 	border-radius: 50%;
 	height: 100px;
 	margin-left: 20px;
@@ -42,22 +41,25 @@
 }
 
 .light-circles {
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	border-radius: 50%;
 	height: 10px;
 	width: 10px;
 }
 
 .red-light {
-	background-color: red;
+	background-color: #f0576f;
+	box-shadow: 2px 1px #ab0522;
 }
 
 .green-light {
-	background-color: green;
+	background-color: #79b783;
+	box-shadow: 2px 1px #3a8045;
 }
 
 .yellow-light {
-	background-color: yellow;
+	background-color: #f9e87f;
+	box-shadow: 2px 1px #98840e;
 }
 
 .border-shadow-lines {

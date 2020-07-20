@@ -4,8 +4,8 @@ import "./App.css";
 import Pokedex from "./components/Pokedex/Pokedex";
 import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
 import Searchbar from "./components/Searchbar/Searchbar";
-import Buttons from "./components/Buttons/Buttons";
 
+import Button from "./components/Button/Button";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 
 function App() {
@@ -56,14 +56,24 @@ function App() {
 		<div className='App'>
 			<Pokedex>
 				<PokemonInfo pokeUrl={currentPokemonUrl} />
-				<Buttons
-					goBack={setPreviousPokemon}
-					goTo={setNextPokemon}
-					goToIcon={<AiOutlineCaretRight className='arrow-style' />}
-					goBackIcon={<AiOutlineCaretLeft className='arrow-style' />}
-					buttonClassName={"arrow-button-box"}
+
+				{/* For Navigation Buttons */}
+				<div className='button-container'>
+					<Button
+						handleClick={setPreviousPokemon}
+						renderedButton={<AiOutlineCaretLeft className='arrow-style' />}
+						buttonClassName={"arrow-button-box"}
+					/>
+					<Button
+						handleClick={setNextPokemon}
+						renderedButton={<AiOutlineCaretRight className='arrow-style' />}
+						buttonClassName={"arrow-button-box"}
+					/>
+				</div>
+				<Searchbar
+					onSearch={lookUpPokemon}
+					pokemonNameList={pokemonList.map((p) => p.name)}
 				/>
-				<Searchbar onSearch={lookUpPokemon} />
 			</Pokedex>
 		</div>
 	);

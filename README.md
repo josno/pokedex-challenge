@@ -9,6 +9,7 @@ Currently in development
 ### Challenge Requirements
 
 :white_check_mark: A similar GUI to the sample provided
+
 :white_check_mark: Displaying the following characteristics of a Pokemon:
 
 - Main picture
@@ -17,6 +18,7 @@ Currently in development
 - Weight
 
 :white_check_mark: An interface for searching for a Pokemon by name
+
 :white_check_mark: Not included in the GUI sample, must provide a creative solution
 
 ### Installation Instructions

@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokedex App
 
-## Available Scripts
+A web application that uses the open-source poke-api to generate Pokemon by look up.
 
-In the project directory, you can run:
+### Status
 
-### `yarn start`
+Currently in development
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Challenge Requirements
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+:white_check_mark: A similar GUI to the sample provided
+:white_check_mark: Displaying the following characteristics of a Pokemon:
 
-### `yarn test`
+- Main picture
+- Name
+- Height
+- Weight
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:white_check_mark: An interface for searching for a Pokemon by name
+:white_check_mark: Not included in the GUI sample, must provide a creative solution
+:white_check_mark: A way to go to the next Pokemon (relative to the one currently displaying)
+:white_check_mark: A way to get the previous Pokemon (relative to the one currently displaying)
 
-### `yarn build`
+### Installation Instructions
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was created using create-react-app; you'll need npm to install
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Step 1: `git clone https://github.com/josno/pokedex-challenge.git`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Step 2: `npm install`
 
-### `yarn eject`
+Step 3: `npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### How To Use
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Click on <span style="background-color: #FFFF00">yellow</span> :arrow_backward:and :arrow_forward: arrows to move through the Pokemon list
+- Click on <span style='background-color: #2cacfd; color: white'>Search Database</span> to open a search bar
+- Start typing the name of a Pokemon and a list of suggestions will guide you
+- Click on the :mag: button to search for a Pokemon
+- Click on the :heavy_multiplication_x: button to close the search bar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Screenshots

@@ -23,7 +23,7 @@
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	border-left: 1px solid black;
-	bottom: -5px;
+	/* bottom: -5px; */
 	list-style: none;
 	position: absolute;
 	padding-left: 10px;

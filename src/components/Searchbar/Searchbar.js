@@ -9,6 +9,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 
 	const setAutocompleteInput = (pokemon) => {
 		setPokemon(pokemon);
+		setDisplayAutocomplete(!displayAutocomplete);
 	};
 
 	return (
@@ -51,12 +52,11 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 					/>
 				</div>
 			) : (
-				<button
-					className='open-search-button'
-					onClick={() => setSearchbarToggle(!searchbarToggle)}
-				>
-					Search Database
-				</button>
+				<Button
+					buttonClassName='open-search-button'
+					handleClick={() => setSearchbarToggle(!searchbarToggle)}
+					renderedButton='Search Database'
+				/>
 			)}
 		</div>
 	);

@@ -3,6 +3,7 @@ import "./App.css";
 
 import Pokedex from "./components/Pokedex/Pokedex";
 import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
+import Searchbar from "./components/Searchbar/Searchbar";
 import Buttons from "./components/Buttons/Buttons";
 
 function App() {
@@ -38,6 +39,17 @@ function App() {
 		}
 	};
 
+	const lookUpPokemon = (str) => {
+		const newIndex = pokemonList.findIndex((p) => p.name === str);
+
+		if (!newIndex || newIndex === -1) {
+			alert("No pokemon found. Try again.");
+		} else {
+			setCurrentPokemonUrl(pokemonList[newIndex].url);
+			setListIndex(newIndex);
+		}
+	};
+
 	return (
 		<div className='App'>
 			<Pokedex>
@@ -46,6 +58,7 @@ function App() {
 					goToPreviousPokemon={setPreviousPokemon}
 					goToNextPokemon={setNextPokemon}
 				/>
+				<Searchbar onSearch={lookUpPokemon} />
 			</Pokedex>
 		</div>
 	);

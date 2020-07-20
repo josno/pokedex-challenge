@@ -44,7 +44,9 @@ function App() {
 	const lookUpPokemon = (str) => {
 		const newIndex = pokemonList.findIndex((p) => p.name === str);
 
-		if (!newIndex || newIndex === -1) {
+		if (newIndex === listIndex) {
+			alert("You are already on that pokemon.");
+		} else if (!newIndex || newIndex === -1) {
 			alert("No pokemon found. Try again.");
 		} else {
 			setCurrentPokemonUrl(pokemonList[newIndex].url);

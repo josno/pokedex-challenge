@@ -19,6 +19,11 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 		setPokemon("");
 	};
 
+	const setSearchDatabaseButton = () => {
+		setSearchbarToggle(!searchbarToggle);
+		setPokemon("");
+	};
+
 	const pokemonFilteredList = (
 		<ul className='pokemon-autocomplete-list'>
 			{pokemonNameList
@@ -37,9 +42,9 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 	);
 
 	return (
-		<section className='search-bar-wrapper'>
+		<>
 			{searchbarToggle ? (
-				<div className='search-container'>
+				<section className='search-bar-container'>
 					<div className='search-input-container'>
 						<input
 							className='search-input'
@@ -51,31 +56,27 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 						{displayAutocomplete && pokemonFilteredList}
 					</div>
 
-					<div className='search-buttons-container'>
-						<Button
-							buttonClassName={"search-buttons"}
-							handleClick={() => setSearchbarToggle(!searchbarToggle)}
-							renderedButton={
-								<AiOutlineClose className='search-button-style' />
-							}
-						/>
-						<Button
-							buttonClassName={"search-buttons"}
-							renderedButton={
-								<AiOutlineSearch className='search-button-style' />
-							}
-							handleClick={() => handleSearch(pokemon)}
-						/>
-					</div>
-				</div>
+					<Button
+						buttonClassName={"search-buttons"}
+						handleClick={() => setSearchbarToggle(!searchbarToggle)}
+						renderedButton={<AiOutlineClose className='search-button-style' />}
+					/>
+					<Button
+						buttonClassName={"search-buttons"}
+						renderedButton={<AiOutlineSearch className='search-button-style' />}
+						handleClick={() => handleSearch(pokemon)}
+					/>
+				</section>
 			) : (
-				<Button
-					buttonClassName='open-search-button'
-					handleClick={() => setSearchbarToggle(!searchbarToggle)}
-					renderedButton='Search Database'
-				/>
+				<section className='search-button-container'>
+					<Button
+						buttonClassName='open-search-button'
+						handleClick={() => setSearchDatabaseButton()}
+						renderedButton='Search Database'
+					/>
+				</section>
 			)}
-		</section>
+		</>
 	);
 };
 

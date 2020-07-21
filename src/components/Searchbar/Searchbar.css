@@ -5,16 +5,15 @@
 	width: 180px;
 }
 
-.search-input-container {
-	width: 200px;
-}
-
-.search-container {
+.search-bar-container {
 	animation: fadeIn ease 20s;
 	display: flex;
-	height: 60px;
+	height: 50px;
 	justify-content: space-evenly;
 	padding: 8px;
+	background-color: gray;
+	border-radius: 5px;
+	width: 300px;
 }
 
 .pokemon-autocomplete-list {
@@ -23,15 +22,13 @@
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
 	border-left: 1px solid black;
-	/* bottom: -5px; */
-	list-style: none;
-	position: absolute;
-	padding-left: 10px;
-	text-align: left;
-	margin: 0px;
-	left: 20px;
 	height: 100px;
+	list-style: none;
+	padding-left: 10px;
+	position: relative;
+	margin: 0px;
 	overflow-y: scroll;
+	text-align: left;
 	width: 180px;
 }
 
@@ -39,9 +36,3 @@
 	background-color: yellow;
 }
 
-.search-buttons-container {
-	width: 40%;
-	display: flex;
-	justify-content: space-evenly;
-	height: 100%;
-}

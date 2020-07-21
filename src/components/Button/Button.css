@@ -30,7 +30,7 @@ button:hover {
 
 .open-search-button {
 	border-radius: 10px;
-	background-color: #2cacfd;
+	background-color: gray;
 	border: 1px solid black;
 	height: 50px;
 	width: 200px;
@@ -40,8 +40,6 @@ button:hover {
 
 .search-buttons {
 	border: 1px solid black;
-	/* height: 70%; */
-	width: 40%;
 	border-radius: 15px;
 }
 

@@ -19,7 +19,7 @@ function App() {
 			.then((resjson) => {
 				setPokemonList(resjson.results);
 				setCurrentPokemonUrl(resjson.results[0].url);
-				//Comment - listIndex will be loaded for current Pokemon after useEffect runs
+				//listIndex will be loaded for current Pokemon after useEffect runs
 			});
 	}, []);
 
@@ -55,7 +55,7 @@ function App() {
 	};
 
 	return (
-		<div className='App'>
+		<>
 			<Pokedex>
 				<PokemonInfo pokeUrl={currentPokemonUrl} />
 				<Searchbar
@@ -63,7 +63,7 @@ function App() {
 					pokemonNameList={pokemonList.map((p) => p.name)}
 				/>
 				{/* For Navigation Buttons */}
-				<div className='button-container'>
+				<nav className='button-container'>
 					<Button
 						handleClick={setPreviousPokemon}
 						renderedButton={<AiOutlineCaretLeft className='arrow-style' />}
@@ -74,9 +74,9 @@ function App() {
 						renderedButton={<AiOutlineCaretRight className='arrow-style' />}
 						buttonClassName={"arrow-button-box"}
 					/>
-				</div>
+				</nav>
 			</Pokedex>
-		</div>
+		</>
 	);
 }
 

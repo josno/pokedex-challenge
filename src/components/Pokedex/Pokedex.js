@@ -3,7 +3,6 @@ import "./Pokedex.css";
 
 const Pokedex = (props) => {
 	return (
-		// <div className='pokedex-wrapper'>
 		<div className='pokedex-container'>
 			<header>
 				<h1 className='pokedex-title'>Pokedex 151</h1>
@@ -16,14 +15,9 @@ const Pokedex = (props) => {
 					</div>
 				</div>
 			</header>
-			{/* <div className='border-shadow-lines'>
-				<div className='border-line-one' />
-				<div className='border-line-two' />
-				<div className='border-line-three' />
-			</div> */}
-			<div className='pokemon-details-wrapper'>{props.children}</div>
+
+			<main className='pokemon-details-wrapper'>{props.children}</main>
 		</div>
-		// </div>
 	);
 };
 

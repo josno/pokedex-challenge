@@ -16,6 +16,12 @@
 	width: 360px;
 }
 
+.pokedex-title {
+	position: absolute;
+	left: 46%;
+	top: 7%;
+}
+
 .pokedex-three-lights {
 	/* border: 1px solid black; */
 	display: flex;

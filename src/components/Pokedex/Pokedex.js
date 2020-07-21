@@ -16,7 +16,7 @@ const Pokedex = (props) => {
 				</div>
 			</header>
 
-			<main className='pokemon-details-wrapper'>{props.children}</main>
+			<main className='pokemon-details'>{props.children}</main>
 		</div>
 	);
 };

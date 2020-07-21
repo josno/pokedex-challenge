@@ -37,7 +37,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 	);
 
 	return (
-		<div className='search-bar-wrapper'>
+		<section className='search-bar-wrapper'>
 			{searchbarToggle ? (
 				<div className='search-container'>
 					<div className='search-input-container'>
@@ -75,7 +75,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 					renderedButton='Search Database'
 				/>
 			)}
-		</div>
+		</section>
 	);
 };
 

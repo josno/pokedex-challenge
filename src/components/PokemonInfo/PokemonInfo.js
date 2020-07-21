@@ -31,7 +31,7 @@ const PokemonInfo = (props) => {
 	}, [props.pokeUrl]);
 
 	return (
-		<div className='pokemon-details-container'>
+		<section className='pokemon-details-container'>
 			{loading ? (
 				<div className='loading-text details-text'> Loading...</div>
 			) : (
@@ -55,7 +55,7 @@ const PokemonInfo = (props) => {
 					</ul>
 				</>
 			)}
-		</div>
+		</section>
 	);
 };
 

@@ -57,11 +57,12 @@ function App() {
 	return (
 		<>
 			<Pokedex>
-				<PokemonInfo pokeUrl={currentPokemonUrl} />
 				<Searchbar
 					onSearch={lookUpPokemon}
 					pokemonNameList={pokemonList.map((p) => p.name)}
 				/>
+				<PokemonInfo pokeUrl={currentPokemonUrl} />
+
 				{/* For Navigation Buttons */}
 				<nav className='button-container'>
 					<Button

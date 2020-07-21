@@ -11,23 +11,22 @@
 	align-items: center;
 	background-color: #262927;
 	border: 40px solid #c4c4c4;
-	border-radius: 5px;
+	border-radius: 10px 10px 10px 70px;
+	box-shadow: 6px 6px #6b6868;
 	display: flex;
 	flex-direction: column;
-	/* height: 250px; */
+	height: 350px;
 	justify-content: center;
 	margin: 15px;
 	max-width: 400px;
-	width: 300px;
-	/* background-color: #c4c4c4; */
-	border-radius: 10px 10px 10px 70px;
-	box-shadow: 6px 6px #6b6868;
 	padding: 10px;
+	width: 300px;
 }
 
 .details-text {
 	color: #3ee052;
 	margin: 0px;
+	text-align: center;
 }
 
 .image-container {

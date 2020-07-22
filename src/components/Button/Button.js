@@ -8,7 +8,7 @@ const Buttons = (props) => {
 			className={props.buttonClassName}
 			onClick={() => props.handleClick()}
 		>
-			{props.renderedButton}
+			{props.label}
 		</button>
 	);
 };

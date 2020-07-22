@@ -62,11 +62,11 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 					<Button
 						buttonClassName={"search-buttons"}
 						handleClick={() => setSearchbarToggle(!searchbarToggle)}
-						renderedButton={<AiOutlineClose className='search-button-style' />}
+						label={<AiOutlineClose className='search-button-style' />}
 					/>
 					<Button
 						buttonClassName={"search-buttons"}
-						renderedButton={<AiOutlineSearch className='search-button-style' />}
+						label={<AiOutlineSearch className='search-button-style' />}
 						handleClick={() => handleSearch(pokemon)}
 					/>
 				</section>
@@ -75,7 +75,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 					<Button
 						buttonClassName='open-search-button'
 						handleClick={() => setSearchDatabaseButton()}
-						renderedButton='Search Database'
+						label='Search Database'
 					/>
 				</section>
 			)}

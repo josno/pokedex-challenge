@@ -9,8 +9,7 @@ const PokemonInfo = (props) => {
 		imgUrl: "",
 	});
 	const [loading, setLoading] = useState(true);
-
-	//set loading here
+	const [loadingMessage, setLoadingMessage] = useState("Loading...");
 
 	useEffect(() => {
 		fetch(`https://pokeapi.co/api/v2/pokemon/${props.pokeNumber}/`)
@@ -27,16 +26,18 @@ const PokemonInfo = (props) => {
 					imgUrl: responseJson.sprites.front_default,
 				});
 				setLoading(false);
+			})
+			.catch((err) => {
+				setLoadingMessage("Pokemon cannot be loaded.");
 			});
-	}, [props.pokeNumber]);
+	}, [props]);
 
 	return (
 		<section className='pokemon-details-container'>
 			{loading ? (
-				<div className='loading-text details-text'> Loading...</div>
+				<div className='loading-text details-text'>{loadingMessage}</div>
 			) : (
 				<>
-					{/* Comment - No Image? Render something else */}
 					<div className='image-container'>
 						<img
 							className='poke-image'

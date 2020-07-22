@@ -1,0 +1,8 @@
+.error-message-text {
+	color: #fbe250;
+	font-size: 12px;
+	font-style: italic;
+	margin: 0px;
+	position: absolute;
+	top: 215px;
+}

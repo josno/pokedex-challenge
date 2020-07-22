@@ -9,17 +9,15 @@ import Button from "./components/Button/Button";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 
 function App() {
-	const [currentPokemonUrl, setCurrentPokemonUrl] = useState("");
+	const [currentPokemonNumber, setCurrentPokemonNumber] = useState(1);
 	const [listIndex, setListIndex] = useState(0);
 	const [pokemonList, setPokemonList] = useState([]);
 
 	useEffect(() => {
-		fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+		fetch("https://pokeapi.co/api/v2/pokemon?limit=10")
 			.then((res) => res.json())
 			.then((resjson) => {
 				setPokemonList(resjson.results);
-				setCurrentPokemonUrl(resjson.results[0].url);
-				//listIndex will be loaded for current Pokemon after useEffect runs
 			});
 	}, []);
 
@@ -27,7 +25,7 @@ function App() {
 		if (listIndex === 0) {
 			alert("You can't go less than #1");
 		} else {
-			setCurrentPokemonUrl(pokemonList[listIndex - 1].url);
+			setCurrentPokemonNumber(currentPokemonNumber - 1);
 			setListIndex(listIndex - 1);
 		}
 	};
@@ -36,7 +34,7 @@ function App() {
 		if (listIndex === pokemonList.length - 1) {
 			alert("You reached the end of the list.");
 		} else {
-			setCurrentPokemonUrl(pokemonList[listIndex + 1].url);
+			setCurrentPokemonNumber(currentPokemonNumber + 1);
 			setListIndex(listIndex + 1);
 		}
 	};
@@ -49,7 +47,7 @@ function App() {
 		} else if (!newIndex || newIndex === -1) {
 			alert("No pokemon found. Try again.");
 		} else {
-			setCurrentPokemonUrl(pokemonList[newIndex].url);
+			setCurrentPokemonNumber(newIndex + 1);
 			setListIndex(newIndex);
 		}
 	};
@@ -61,7 +59,7 @@ function App() {
 					onSearch={lookUpPokemon}
 					pokemonNameList={pokemonList.map((p) => p.name)}
 				/>
-				<PokemonInfo pokeUrl={currentPokemonUrl} />
+				<PokemonInfo pokeNumber={currentPokemonNumber} />
 
 				{/* For Navigation Buttons */}
 				<nav className='button-container'>

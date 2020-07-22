@@ -13,7 +13,7 @@ const PokemonInfo = (props) => {
 	//set loading here
 
 	useEffect(() => {
-		fetch(props.pokeUrl)
+		fetch(`https://pokeapi.co/api/v2/pokemon/${props.pokeNumber}/`)
 			.then((response) => response.json())
 			.then((responseJson) => {
 				const capitalizedName =
@@ -28,7 +28,7 @@ const PokemonInfo = (props) => {
 				});
 				setLoading(false);
 			});
-	}, [props.pokeUrl]);
+	}, [props.pokeNumber]);
 
 	return (
 		<section className='pokemon-details-container'>

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonInfo renders the UI as expected 1`] = `
+<PokemonInfo>
+  <section
+    className="pokemon-details-container"
+  >
+    <div
+      className="loading-text details-text"
+    >
+      Loading...
+    </div>
+  </section>
+</PokemonInfo>
+`;

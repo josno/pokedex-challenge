@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Searchbar renders the UI as expected and creates a snapshot 1`] = `
+<Fragment>
+  <section
+    className="open-search-button-container"
+  >
+    <Buttons
+      buttonClassName="open-search-button"
+      handleClick={[Function]}
+      label="Search Database"
+    />
+  </section>
+</Fragment>
+`;

@@ -21,11 +21,10 @@ button:hover {
 	stroke-width: 30;
 }
 
-.button-container {
+.nav-button-container {
 	width: 50%;
 	display: flex;
 	justify-content: space-between;
-	margin: 20px auto 10px auto;
 }
 
 .open-search-button {

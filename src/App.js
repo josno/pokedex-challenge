@@ -16,7 +16,7 @@ function App() {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		fetch("https://pokdsaeapi.co/api/v2/pokemon?limit=151")
+		fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
 			.then((res) => res.json())
 			.then((resjson) => {
 				setPokemonList(resjson.results);
@@ -69,7 +69,7 @@ function App() {
 				<PokemonInfo pokeNumber={currentPokemonNumber} />
 
 				{/* For Navigation Buttons */}
-				<nav className='button-container'>
+				<nav className='nav-button-container'>
 					<Button
 						handleClick={setPreviousPokemon}
 						renderedButton={<AiOutlineCaretLeft className='arrow-style' />}

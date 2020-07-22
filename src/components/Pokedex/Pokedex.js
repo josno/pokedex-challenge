@@ -5,7 +5,10 @@ const Pokedex = (props) => {
 	return (
 		<div className='pokedex-container'>
 			<header>
-				<h1 className='pokedex-title'>Pokedex 151</h1>
+				<h1 className='pokedex-title'>
+					Pokedex <br />
+					151
+				</h1>
 				<div className='top-design'>
 					<div className='big-blue-light' />
 					<div className='pokedex-three-lights'>

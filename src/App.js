@@ -26,7 +26,7 @@ function App() {
 
 	const setPreviousPokemon = () => {
 		if (listIndex === 0) {
-			setError("You can't go less than #1");
+			setError("You can't go less than #1.");
 		} else {
 			error && setError(null);
 			setCurrentPokemonNumber(currentPokemonNumber - 1);
@@ -72,12 +72,12 @@ function App() {
 				<nav className='nav-button-container'>
 					<Button
 						handleClick={setPreviousPokemon}
-						renderedButton={<AiOutlineCaretLeft className='arrow-style' />}
+						label={<AiOutlineCaretLeft className='arrow-style' />}
 						buttonClassName={"arrow-button-box"}
 					/>
 					<Button
 						handleClick={setNextPokemon}
-						renderedButton={<AiOutlineCaretRight className='arrow-style' />}
+						label={<AiOutlineCaretRight className='arrow-style' />}
 						buttonClassName={"arrow-button-box"}
 					/>
 				</nav>

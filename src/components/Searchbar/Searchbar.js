@@ -15,6 +15,9 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 	};
 
 	const handleSearch = () => {
+		if (!pokemon) {
+			return;
+		}
 		onSearch(pokemon);
 		setPokemon("");
 	};
@@ -68,7 +71,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 					/>
 				</section>
 			) : (
-				<section className='search-button-container'>
+				<section className='open-search-button-container'>
 					<Button
 						buttonClassName='open-search-button'
 						handleClick={() => setSearchDatabaseButton()}

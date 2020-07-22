@@ -7,13 +7,18 @@
 
 .search-bar-container {
 	animation: fadeIn ease 20s;
+	background-color: gray;
+	border-radius: 5px;
 	display: flex;
 	height: 50px;
 	justify-content: space-evenly;
+	margin-bottom: 15px;
 	padding: 8px;
-	background-color: gray;
-	border-radius: 5px;
 	width: 300px;
+}
+
+.open-search-button-container {
+	margin-bottom: 15px;
 }
 
 .pokemon-autocomplete-list {
@@ -30,9 +35,9 @@
 	overflow-y: scroll;
 	text-align: left;
 	width: 180px;
+	z-index: 999;
 }
 
 .autocomplete-choice:hover {
-	background-color: yellow;
+	background-color: #fbe250;
 }
-

@@ -15,7 +15,7 @@ button:hover {
 }
 
 .arrow-style {
-	fill: yellow;
+	fill: #fbe250;
 	height: 100%;
 	width: 100%;
 	stroke-width: 30;

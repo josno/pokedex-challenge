@@ -10,20 +10,22 @@ import Button from "./components/Button/Button";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 
 function App() {
-	const [currentPokemonUrl, setCurrentPokemonUrl] = useState(
-		"https://pokeapi.co/api/v2/pokemon/1/"
-	);
+	const initialUrl = "https://pokeapi.co/api/v2/pokemon/1/";
+	const [currentPokemonUrl, setCurrentPokemonUrl] = useState(initialUrl);
 	const [listIndex, setListIndex] = useState(0);
 	const [pokemonList, setPokemonList] = useState([]);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+		fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
 			.then((res) => res.json())
 			.then((resjson) => {
+				// We will keep track of where we are on the list by using listIndex starting at 0
 				setPokemonList(resjson.results);
 			})
-			.catch((err) => setError(`Search function broken. Use arrows only.`));
+			.catch((err) => {
+				setError("Unable to load Pokemon.");
+			});
 	}, []);
 
 	const setPreviousPokemon = () => {
@@ -46,13 +48,15 @@ function App() {
 		}
 	};
 
+	const pokemonNameList = pokemonList.map((p) => p.name);
+
 	const lookUpPokemon = (str) => {
 		const newIndex = pokemonList.findIndex((p) => p.name === str);
 
 		if (newIndex === listIndex) {
-			setError("You are already on that pokemon.");
+			setError("You are already on that Pokemon.");
 		} else if (newIndex < 0) {
-			setError("No pokemon found. Try again.");
+			setError("No Pokemon found. Try again.");
 		} else {
 			error && setError(null);
 			setCurrentPokemonUrl(pokemonList[newIndex].url);
@@ -63,21 +67,20 @@ function App() {
 	return (
 		<>
 			<Pokedex>
-				<Searchbar
-					onSearch={lookUpPokemon}
-					pokemonNameList={pokemonList.map((p) => p.name)}
-				/>
+				<Searchbar onSearch={lookUpPokemon} pokemonNameList={pokemonNameList} />
 				{error && <Message errorMessage={error} />}
-				<PokemonInfo pokeUrl={currentPokemonUrl} />
+				<PokemonInfo listError={error} pokeUrl={currentPokemonUrl} />
 
 				{/* For Navigation Buttons */}
 				<nav className='nav-button-container'>
 					<Button
+						listError={error}
 						handleClick={setPreviousPokemon}
 						label={<AiOutlineCaretLeft className='arrow-style' />}
 						buttonClassName={"arrow-button-box"}
 					/>
 					<Button
+						listError={error}
 						handleClick={setNextPokemon}
 						label={<AiOutlineCaretRight className='arrow-style' />}
 						buttonClassName={"arrow-button-box"}

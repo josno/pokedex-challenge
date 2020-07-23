@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import PokemonInfo from "./PokemonInfo";
 
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 import toJson from "enzyme-to-json";
 
 describe("PokemonInfo", () => {
@@ -13,7 +14,8 @@ describe("PokemonInfo", () => {
 	});
 
 	it(`renders the UI as expected`, () => {
-		const wrapper = shallow(<PokemonInfo loading={true} />);
+		const wrapper = mount(<PokemonInfo />);
+		expect(wrapper.find("div").props().children).toBe("Loading...");
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 });

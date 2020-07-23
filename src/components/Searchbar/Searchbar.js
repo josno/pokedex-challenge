@@ -6,7 +6,6 @@ import "./Searchbar.css";
 
 const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 	const [pokemon, setPokemon] = useState("");
-	const [searchbarToggle, setSearchbarToggle] = useState(false);
 	const [displayAutocomplete, setDisplayAutocomplete] = useState(false);
 
 	const setAutocompleteInput = (pokemon) => {
@@ -19,11 +18,6 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 			return;
 		}
 		onSearch(pokemon);
-		setPokemon("");
-	};
-
-	const setSearchDatabaseButton = () => {
-		setSearchbarToggle(!searchbarToggle);
 		setPokemon("");
 	};
 
@@ -46,39 +40,30 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 
 	return (
 		<>
-			{searchbarToggle ? (
-				<section className='search-bar-container'>
-					<div className='search-input-container'>
-						<input
-							className='search-input'
-							value={pokemon}
-							onChange={(e) => setPokemon(e.target.value)}
-							onClick={() => setDisplayAutocomplete(!displayAutocomplete)}
-						/>
+			<section className='search-bar-container'>
+				<div className='search-input-container'>
+					<input
+						className='search-input'
+						value={pokemon}
+						onChange={(e) => setPokemon(e.target.value)}
+						placeholder='Search database'
+						onClick={() => setDisplayAutocomplete(!displayAutocomplete)}
+					/>
 
-						{displayAutocomplete && pokemonFilteredList}
-					</div>
+					{displayAutocomplete && pokemonFilteredList}
+				</div>
 
-					<Button
-						buttonClassName={"search-buttons"}
-						handleClick={() => setSearchbarToggle(!searchbarToggle)}
-						label={<AiOutlineClose className='search-button-style' />}
-					/>
-					<Button
-						buttonClassName={"search-buttons"}
-						label={<AiOutlineSearch className='search-button-style' />}
-						handleClick={() => handleSearch(pokemon)}
-					/>
-				</section>
-			) : (
-				<section className='open-search-button-container'>
-					<Button
-						buttonClassName='open-search-button'
-						handleClick={() => setSearchDatabaseButton()}
-						label='Search Database'
-					/>
-				</section>
-			)}
+				<Button
+					buttonClassName={"search-buttons"}
+					handleClick={() => setPokemon("")}
+					label={<AiOutlineClose className='search-button-style' />}
+				/>
+				<Button
+					buttonClassName={"search-buttons"}
+					label={<AiOutlineSearch className='search-button-style' />}
+					handleClick={() => handleSearch(pokemon)}
+				/>
+			</section>
 		</>
 	);
 };

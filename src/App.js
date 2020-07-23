@@ -10,7 +10,9 @@ import Button from "./components/Button/Button";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 
 function App() {
-	const [currentPokemonNumber, setCurrentPokemonNumber] = useState(1);
+	const [currentPokemonUrl, setCurrentPokemonUrl] = useState(
+		"https://pokeapi.co/api/v2/pokemon/1/"
+	);
 	const [listIndex, setListIndex] = useState(0);
 	const [pokemonList, setPokemonList] = useState([]);
 	const [error, setError] = useState(null);
@@ -29,7 +31,7 @@ function App() {
 			setError("You can't go less than #1.");
 		} else {
 			error && setError(null);
-			setCurrentPokemonNumber(currentPokemonNumber - 1);
+			setCurrentPokemonUrl(pokemonList[listIndex - 1].url);
 			setListIndex(listIndex - 1);
 		}
 	};
@@ -39,7 +41,7 @@ function App() {
 			setError("You reached the end of the list.");
 		} else {
 			error && setError(null);
-			setCurrentPokemonNumber(currentPokemonNumber + 1);
+			setCurrentPokemonUrl(pokemonList[listIndex + 1].url);
 			setListIndex(listIndex + 1);
 		}
 	};
@@ -53,7 +55,7 @@ function App() {
 			setError("No pokemon found. Try again.");
 		} else {
 			error && setError(null);
-			setCurrentPokemonNumber(newIndex + 1);
+			setCurrentPokemonUrl(pokemonList[newIndex].url);
 			setListIndex(newIndex);
 		}
 	};
@@ -66,7 +68,7 @@ function App() {
 					pokemonNameList={pokemonList.map((p) => p.name)}
 				/>
 				{error && <Message errorMessage={error} />}
-				<PokemonInfo pokeNumber={currentPokemonNumber} />
+				<PokemonInfo pokeUrl={currentPokemonUrl} />
 
 				{/* For Navigation Buttons */}
 				<nav className='nav-button-container'>

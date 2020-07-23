@@ -6,7 +6,6 @@
 }
 
 .search-bar-container {
-	animation: fadeIn ease 20s;
 	background-color: gray;
 	border-radius: 5px;
 	display: flex;
@@ -15,10 +14,6 @@
 	margin-bottom: 15px;
 	padding: 8px;
 	width: 300px;
-}
-
-.open-search-button-container {
-	margin-bottom: 15px;
 }
 
 .pokemon-autocomplete-list {

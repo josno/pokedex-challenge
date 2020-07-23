@@ -2,13 +2,14 @@ import React from "react";
 
 import "./Button.css";
 
-const Buttons = (props) => {
+const Buttons = ({ handleClick, listError, buttonClassName, label }) => {
 	return (
 		<button
-			className={props.buttonClassName}
-			onClick={() => props.handleClick()}
+			className={buttonClassName}
+			onClick={() => handleClick()}
+			disabled={listError}
 		>
-			{props.label}
+			{label}
 		</button>
 	);
 };

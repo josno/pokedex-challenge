@@ -1,10 +1,10 @@
 import React from "react";
 import "./Message.css";
 
-const Message = ({ errorMessage }) => {
+const Message = ({ warningMessage }) => {
 	return (
 		<>
-			<p className='error-message-text'>{errorMessage}</p>
+			<p className='error-message-text'>{warningMessage}</p>
 		</>
 	);
 };

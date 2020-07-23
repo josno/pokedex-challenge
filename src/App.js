@@ -10,11 +10,11 @@ import Button from "./components/Button/Button";
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 
 function App() {
-	const initialUrl = "https://pokeapi.co/api/v2/pokemon/1/";
-	const [currentPokemonUrl, setCurrentPokemonUrl] = useState(initialUrl);
+	const [currentPokemonUrl, setCurrentPokemonUrl] = useState(null);
 	const [listIndex, setListIndex] = useState(0);
 	const [pokemonList, setPokemonList] = useState([]);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState(false);
+	const [warningMessage, setWarningMessage] = useState(null);
 
 	useEffect(() => {
 		fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
@@ -22,17 +22,19 @@ function App() {
 			.then((resjson) => {
 				// We will keep track of where we are on the list by using listIndex starting at 0
 				setPokemonList(resjson.results);
+				setCurrentPokemonUrl(resjson.results[0].url);
 			})
 			.catch((err) => {
-				setError("Unable to load Pokemon.");
+				setError(true);
+				setWarningMessage("Unable to load Pokemon.");
 			});
 	}, []);
 
 	const setPreviousPokemon = () => {
 		if (listIndex === 0) {
-			setError("You can't go less than #1.");
+			setWarningMessage("You can't go less than #1.");
 		} else {
-			error && setError(null);
+			setWarningMessage(null);
 			setCurrentPokemonUrl(pokemonList[listIndex - 1].url);
 			setListIndex(listIndex - 1);
 		}
@@ -40,9 +42,9 @@ function App() {
 
 	const setNextPokemon = () => {
 		if (listIndex === pokemonList.length - 1) {
-			setError("You reached the end of the list.");
+			setWarningMessage("You reached the end of the list.");
 		} else {
-			error && setError(null);
+			setWarningMessage(null);
 			setCurrentPokemonUrl(pokemonList[listIndex + 1].url);
 			setListIndex(listIndex + 1);
 		}
@@ -54,11 +56,11 @@ function App() {
 		const newIndex = pokemonList.findIndex((p) => p.name === str);
 
 		if (newIndex === listIndex) {
-			setError("You are already on that Pokemon.");
+			setWarningMessage("You are already on that Pokemon.");
 		} else if (newIndex < 0) {
-			setError("No Pokemon found. Try again.");
+			setWarningMessage("No Pokemon found. Try again.");
 		} else {
-			error && setError(null);
+			setWarningMessage(null);
 			setCurrentPokemonUrl(pokemonList[newIndex].url);
 			setListIndex(newIndex);
 		}
@@ -68,8 +70,8 @@ function App() {
 		<>
 			<Pokedex>
 				<Searchbar onSearch={lookUpPokemon} pokemonNameList={pokemonNameList} />
-				{error && <Message errorMessage={error} />}
-				<PokemonInfo listError={error} pokeUrl={currentPokemonUrl} />
+				{warningMessage && <Message warningMessage={warningMessage} />}
+				<PokemonInfo pokeUrl={currentPokemonUrl} />
 
 				{/* For Navigation Buttons */}
 				<nav className='nav-button-container'>

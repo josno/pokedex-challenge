@@ -12,24 +12,28 @@ const PokemonInfo = ({ pokeUrl }) => {
 	const [loadingMessage, setLoadingMessage] = useState("Loading...");
 
 	useEffect(() => {
-		fetch(`${pokeUrl}`)
-			.then((response) => response.json())
-			.then((responseJson) => {
-				const capitalizedName =
-					responseJson.name.charAt(0).toUpperCase() +
-					responseJson.name.slice(1);
-				setCurrentPokemon({
-					id: responseJson.id,
-					name: capitalizedName,
-					weight: responseJson.weight,
-					height: responseJson.height,
-					imgUrl: responseJson.sprites.front_default,
+		if (!pokeUrl) {
+			return;
+		} else {
+			fetch(`${pokeUrl}`)
+				.then((response) => response.json())
+				.then((responseJson) => {
+					const capitalizedName =
+						responseJson.name.charAt(0).toUpperCase() +
+						responseJson.name.slice(1);
+					setCurrentPokemon({
+						id: responseJson.id,
+						name: capitalizedName,
+						weight: responseJson.weight,
+						height: responseJson.height,
+						imgUrl: responseJson.sprites.front_default,
+					});
+					setLoading(false);
+				})
+				.catch((err) => {
+					setLoadingMessage("Pokemon unavailable.");
 				});
-				setLoading(false);
-			})
-			.catch((err) => {
-				setLoadingMessage("Pokemon unavailable.");
-			});
+		}
 	}, [pokeUrl]);
 
 	return (

@@ -38,6 +38,18 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 		</ul>
 	);
 
+	const handleDisplayAutocomplete = () => {
+		if (pokemonNameList.length <= 0) {
+			return;
+		}
+		setDisplayAutocomplete(true);
+	};
+
+	const handleCloseButton = () => {
+		setPokemon("");
+		setDisplayAutocomplete(false);
+	};
+
 	return (
 		<>
 			<section className='search-bar-container'>
@@ -47,15 +59,14 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 						value={pokemon}
 						onChange={(e) => setPokemon(e.target.value)}
 						placeholder='Search database'
-						onClick={() => setDisplayAutocomplete(!displayAutocomplete)}
+						onClick={() => handleDisplayAutocomplete()}
 					/>
-
 					{displayAutocomplete && pokemonFilteredList}
 				</div>
 
 				<Button
 					buttonClassName={"search-buttons"}
-					handleClick={() => setPokemon("")}
+					handleClick={() => handleCloseButton()}
 					label={<AiOutlineClose className='search-button-style' />}
 				/>
 				<Button

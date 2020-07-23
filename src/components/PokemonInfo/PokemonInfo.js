@@ -12,7 +12,7 @@ const PokemonInfo = (props) => {
 	const [loadingMessage, setLoadingMessage] = useState("Loading...");
 
 	useEffect(() => {
-		fetch(`https://pokeapi.co/api/v2/pokemon/${props.pokeNumber}/`)
+		fetch(`${props.pokeUrl}`)
 			.then((response) => response.json())
 			.then((responseJson) => {
 				const capitalizedName =
@@ -30,7 +30,7 @@ const PokemonInfo = (props) => {
 			.catch((err) => {
 				setLoadingMessage("Pokemon cannot be loaded.");
 			});
-	}, [props]);
+	}, [props.pokeUrl]);
 
 	return (
 		<section className='pokemon-details-container'>

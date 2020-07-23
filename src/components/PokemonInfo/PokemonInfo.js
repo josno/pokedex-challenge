@@ -50,13 +50,13 @@ const PokemonInfo = ({ pokeUrl }) => {
 						/>
 					</div>
 
-					<h3 className='details-text'>
+					<h3 className='title-text details-text'>
 						{`#${currentPokemon.id}`} <br />
 						{currentPokemon.name}
 					</h3>
 					<ul className='details-text'>
-						<li>Weight: {currentPokemon.weight}</li>
-						<li>Height: {currentPokemon.height}</li>
+						<li>Weight: {currentPokemon.weight} hg</li>
+						<li>Height: {currentPokemon.height} dm</li>
 					</ul>
 				</>
 			)}

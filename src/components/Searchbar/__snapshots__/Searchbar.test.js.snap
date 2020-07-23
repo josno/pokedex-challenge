@@ -12,6 +12,7 @@ exports[`Searchbar renders the UI as expected and creates a snapshot 1`] = `
         className="search-input"
         onChange={[Function]}
         onClick={[Function]}
+        placeholder="Search database"
         value=""
       />
     </div>

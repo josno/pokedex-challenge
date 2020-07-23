@@ -13,7 +13,7 @@ describe("Message", () => {
 
 	it(`Given props renders passed message`, () => {
 		const messageProps = "Something wrong happened.";
-		const wrapper = shallow(<Message errorMessage={messageProps} />);
+		const wrapper = shallow(<Message warningMessage={messageProps} />);
 		expect(wrapper.find("p").props().children).toBe(messageProps);
 	});
 });

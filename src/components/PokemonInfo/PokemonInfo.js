@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./PokemonInfo.css";
 
-const PokemonInfo = (props) => {
+const PokemonInfo = ({ listError, pokeUrl }) => {
 	const [currentPokemon, setCurrentPokemon] = useState({
 		name: "",
 		weight: "",
@@ -12,25 +12,30 @@ const PokemonInfo = (props) => {
 	const [loadingMessage, setLoadingMessage] = useState("Loading...");
 
 	useEffect(() => {
-		fetch(`${props.pokeUrl}`)
-			.then((response) => response.json())
-			.then((responseJson) => {
-				const capitalizedName =
-					responseJson.name.charAt(0).toUpperCase() +
-					responseJson.name.slice(1);
-				setCurrentPokemon({
-					id: responseJson.id,
-					name: capitalizedName,
-					weight: responseJson.weight,
-					height: responseJson.height,
-					imgUrl: responseJson.sprites.front_default,
+		if (listError) {
+			setLoadingMessage("");
+			setLoading(true);
+		} else {
+			fetch(`${pokeUrl}`)
+				.then((response) => response.json())
+				.then((responseJson) => {
+					const capitalizedName =
+						responseJson.name.charAt(0).toUpperCase() +
+						responseJson.name.slice(1);
+					setCurrentPokemon({
+						id: responseJson.id,
+						name: capitalizedName,
+						weight: responseJson.weight,
+						height: responseJson.height,
+						imgUrl: responseJson.sprites.front_default,
+					});
+					setLoading(false);
+				})
+				.catch((err) => {
+					setLoadingMessage("Pokemon unavailable.");
 				});
-				setLoading(false);
-			})
-			.catch((err) => {
-				setLoadingMessage("Pokemon cannot be loaded.");
-			});
-	}, [props.pokeUrl]);
+		}
+	}, [listError, pokeUrl]);
 
 	return (
 		<section className='pokemon-details-container'>

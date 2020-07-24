@@ -30,6 +30,12 @@ function App() {
 			});
 	}, []);
 
+	const handleWarningMessage = () => {
+		warningMessage && setWarningMessage(null);
+	};
+
+	const pokemonNameList = pokemonList.map((p) => p.name);
+
 	const setPreviousPokemon = () => {
 		if (listIndex === 0) {
 			setCurrentPokemonUrl(pokemonList[pokemonList.length - 1].url);
@@ -38,10 +44,6 @@ function App() {
 			setCurrentPokemonUrl(pokemonList[listIndex - 1].url);
 			setListIndex(listIndex - 1);
 		}
-	};
-
-	const handleWarningMessage = () => {
-		warningMessage && setWarningMessage(null);
 	};
 
 	const setNextPokemon = () => {
@@ -53,8 +55,6 @@ function App() {
 			setListIndex(listIndex + 1);
 		}
 	};
-
-	const pokemonNameList = pokemonList.map((p) => p.name);
 
 	const lookUpPokemon = (str) => {
 		const newIndex = pokemonList.findIndex((p) => p.name === str);

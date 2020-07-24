@@ -18,10 +18,12 @@ Open your terminal and do this:
 
 Step 1: `git clone https://github.com/josno/pokedex-challenge.git`
 
-Step 2: `npm install`
+Step 2: `cd pokedex-challenge`
 
-Step 3: `npm start`
+Step 3: `npm install`
 
-Step 4: Open your browser to [here](http://localhost:3000)
+Step 4: `npm start`
 
-Step 5: Have fun!
+Step 5: Open your browser to [here](http://localhost:3000)
+
+Step 6: Have fun!

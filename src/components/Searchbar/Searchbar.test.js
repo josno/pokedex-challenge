@@ -27,10 +27,15 @@ describe("Searchbar render", () => {
 describe("Searchbar pokemon list", () => {
 	const fakeNameListProps = ["bulbasaur", "ivysaur", "venusaur"];
 	const mockClick = jest.fn();
+	const fakeFunction = jest.fn();
 
 	it("renders a dropdown menu and list of Pokemon when input is clicked`", () => {
 		const wrapper = mount(
-			<Searchbar onClick={mockClick} pokemonNameList={fakeNameListProps} />
+			<Searchbar
+				handleWarningMessage={fakeFunction}
+				lick={mockClick}
+				pokemonNameList={fakeNameListProps}
+			/>
 		);
 		wrapper.find("input").simulate("click");
 		expect(wrapper.find("ul")).toBeTruthy();
@@ -42,7 +47,11 @@ describe("Searchbar pokemon list", () => {
 
 	it("removes dropdown menu on click of cancel button", () => {
 		const wrapper = mount(
-			<Searchbar onClick={mockClick} pokemonNameList={fakeNameListProps} />
+			<Searchbar
+				handleWarningMessage={fakeFunction}
+				onClick={mockClick}
+				pokemonNameList={fakeNameListProps}
+			/>
 		);
 		wrapper.find("input").simulate("click");
 		wrapper.find("button").at(0).simulate("click");

@@ -2,6 +2,24 @@
 
 exports[`Searchbar pokemon list removes dropdown menu on click of cancel button 1`] = `
 <Searchbar
+  handleWarningMessage={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onClick={[MockFunction]}
   pokemonNameList={
     Array [
@@ -127,7 +145,20 @@ exports[`Searchbar pokemon list removes dropdown menu on click of cancel button 
 
 exports[`Searchbar pokemon list renders a dropdown menu and list of Pokemon when input is clicked\` 1`] = `
 <Searchbar
-  onClick={[MockFunction]}
+  handleWarningMessage={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  lick={[MockFunction]}
   pokemonNameList={
     Array [
       "bulbasaur",

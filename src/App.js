@@ -40,6 +40,10 @@ function App() {
 		}
 	};
 
+	const handleWarningMessage = () => {
+		warningMessage && setWarningMessage(null);
+	};
+
 	const setNextPokemon = () => {
 		if (listIndex === pokemonList.length - 1) {
 			setCurrentPokemonUrl(pokemonList[0].url);
@@ -69,7 +73,11 @@ function App() {
 	return (
 		<>
 			<Pokedex>
-				<Searchbar onSearch={lookUpPokemon} pokemonNameList={pokemonNameList} />
+				<Searchbar
+					handleWarningMessage={handleWarningMessage}
+					onSearch={lookUpPokemon}
+					pokemonNameList={pokemonNameList}
+				/>
 				{warningMessage && <Message warningMessage={warningMessage} />}
 				<PokemonInfo pokeUrl={currentPokemonUrl} />
 

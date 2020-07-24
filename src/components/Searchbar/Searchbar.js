@@ -4,21 +4,42 @@ import Button from "../Button/Button";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import "./Searchbar.css";
 
-const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
+const Searchbar = ({
+	handleWarningMessage,
+	onSearch,
+	pokemonNameList = [],
+}) => {
 	const [pokemon, setPokemon] = useState("");
 	const [displayAutocomplete, setDisplayAutocomplete] = useState(false);
 
-	const setAutocompleteInput = (pokemon) => {
+	const setSelection = (pokemon) => {
 		setPokemon(pokemon);
 		setDisplayAutocomplete(!displayAutocomplete);
+	};
+
+	const handleDisplayAutocomplete = () => {
+		if (pokemonNameList.length <= 0) {
+			return;
+		}
+		//Remain open until a Pokemon is selected
+		setDisplayAutocomplete(true);
+		//Gets rid of existing message to avoid confusion
+		handleWarningMessage();
+	};
+
+	const resetInputMenu = () => {
+		setPokemon("");
+		//Should be closed, not toggled
+		setDisplayAutocomplete(false);
 	};
 
 	const handleSearch = () => {
 		if (!pokemon) {
 			return;
 		}
+
+		resetInputMenu();
 		onSearch(pokemon);
-		setPokemon("");
 	};
 
 	const pokemonFilteredList = (
@@ -29,7 +50,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 					<li
 						className='autocomplete-choice'
 						key={index}
-						onClick={() => setAutocompleteInput(pokemonName)}
+						onClick={() => setSelection(pokemonName)}
 						tabIndex='0'
 					>
 						{pokemonName}
@@ -37,18 +58,6 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 				))}
 		</ul>
 	);
-
-	const handleDisplayAutocomplete = () => {
-		if (pokemonNameList.length <= 0) {
-			return;
-		}
-		setDisplayAutocomplete(true);
-	};
-
-	const handleCloseButton = () => {
-		setPokemon("");
-		setDisplayAutocomplete(false);
-	};
 
 	return (
 		<>
@@ -66,7 +75,7 @@ const Searchbar = ({ onSearch, pokemonNameList = [] }) => {
 
 				<Button
 					buttonClassName={"search-buttons"}
-					handleClick={() => handleCloseButton()}
+					handleClick={() => resetInputMenu()}
 					label={<AiOutlineClose className='search-button-style' />}
 				/>
 				<Button

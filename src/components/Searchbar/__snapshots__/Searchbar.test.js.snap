@@ -189,7 +189,7 @@ exports[`Searchbar pokemon list renders a dropdown menu and list of Pokemon when
           onClick={[Function]}
           tabIndex="0"
         >
-          bulbasaur
+          Bulbasaur
         </li>
         <li
           className="autocomplete-choice"
@@ -197,7 +197,7 @@ exports[`Searchbar pokemon list renders a dropdown menu and list of Pokemon when
           onClick={[Function]}
           tabIndex="0"
         >
-          ivysaur
+          Ivysaur
         </li>
         <li
           className="autocomplete-choice"
@@ -205,7 +205,7 @@ exports[`Searchbar pokemon list renders a dropdown menu and list of Pokemon when
           onClick={[Function]}
           tabIndex="0"
         >
-          venusaur
+          Venusaur
         </li>
       </ul>
     </div>

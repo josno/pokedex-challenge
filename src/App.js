@@ -32,9 +32,9 @@ function App() {
 
 	const setPreviousPokemon = () => {
 		if (listIndex === 0) {
-			setWarningMessage("You can't go less than #1.");
+			setCurrentPokemonUrl(pokemonList[pokemonList.length - 1].url);
+			setListIndex(pokemonList.length - 1);
 		} else {
-			setWarningMessage(null);
 			setCurrentPokemonUrl(pokemonList[listIndex - 1].url);
 			setListIndex(listIndex - 1);
 		}
@@ -42,9 +42,9 @@ function App() {
 
 	const setNextPokemon = () => {
 		if (listIndex === pokemonList.length - 1) {
-			setWarningMessage("You reached the end of the list.");
+			setCurrentPokemonUrl(pokemonList[0].url);
+			setListIndex(0);
 		} else {
-			setWarningMessage(null);
 			setCurrentPokemonUrl(pokemonList[listIndex + 1].url);
 			setListIndex(listIndex + 1);
 		}
@@ -60,7 +60,7 @@ function App() {
 		} else if (newIndex < 0) {
 			setWarningMessage("No Pokemon found. Try again.");
 		} else {
-			setWarningMessage(null);
+			warningMessage && setWarningMessage(null);
 			setCurrentPokemonUrl(pokemonList[newIndex].url);
 			setListIndex(newIndex);
 		}

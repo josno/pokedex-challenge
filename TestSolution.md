@@ -22,7 +22,7 @@
 
 :white_check_mark: An interface for searching for a Pokemon by name
 
-:white_check_mark: Not included in the GUI sample, must provide a creative solution
+- Not included in the GUI sample, must provide a creative solution
 
 ### My approach
 
@@ -36,13 +36,13 @@ Interface
 API
 
 - First fetch stores a list of Pokemon names and url as a means to keep track of the Pokemon
-- Individual Pokemon lookup in fetch for API by Pokemon id
+- Pokemon info is fetched by Pokemon ID
 
 Searchbar
 
 - Input allows for typing or selection
 - Added autocomplete list that helps with finding a Pokemon
-- When a Pokemon is selected, the `handleSearch` function takes the name and finds the index from tracker list to return the url
+- When a Pokemon is searched, the `handleSearch` function takes the name and finds the index from tracker list to return the url
 - Warning messages are provided for edge cases
 
 Navigation Buttons
@@ -52,17 +52,17 @@ Navigation Buttons
 - When you reach the last Pokemon and click the right arrow, it starts again at the first Pokemon
 - When you click the left arrow while on the first Pokemon, you go to the last Pokemon
 
-### Feel free to make the following changes
+### Want To See More Pokemon?
 
 - The API is currently set to request the original 151 Pokemon based on GUI sample
 - If you'd like to change the number to all the Pokemon, update the fetch URL in App.js to `?limit=964`
-- The Pokedex will always show the first Pokemon on the fetched list, however it is pulled
+- The Pokedex will load the first Pokemon on the response json list regardless of how it is pulled
 
 ### Discussion
 
 - Given more time, I would invest it in the following:
   - Make Searchbar keyboard friendly
   - Add to accessibility
+  - Add tests and increase code coverage
   - Add animations and complex styling
-  - Increase test coverage
-  - Consider some trade-offs and see if they could work better
+  - Consider some trade-offs (i.e. useRef vs useState, other design elements) and see if they could work better

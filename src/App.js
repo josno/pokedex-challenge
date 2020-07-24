@@ -57,7 +57,9 @@ function App() {
 	};
 
 	const lookUpPokemon = (str) => {
-		const newIndex = pokemonList.findIndex((p) => p.name === str);
+		const newIndex = pokemonList.findIndex(
+			(p) => p.name === str.toLowerCase().trim()
+		);
 
 		if (newIndex === listIndex) {
 			setWarningMessage("You are already on that Pokemon.");

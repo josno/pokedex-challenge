@@ -46,16 +46,20 @@ const Searchbar = ({
 		<ul className='pokemon-autocomplete-list'>
 			{pokemonNameList
 				.filter((p) => p.indexOf(pokemon.toLowerCase().trim()) > -1)
-				.map((pokemonName, index) => (
-					<li
-						className='autocomplete-choice'
-						key={index}
-						onClick={() => setSelection(pokemonName)}
-						tabIndex='0'
-					>
-						{pokemonName}
-					</li>
-				))}
+				.map((pokemonName, index) => {
+					const capitalizedName =
+						pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+					return (
+						<li
+							className='autocomplete-choice'
+							key={index}
+							onClick={() => setSelection(capitalizedName)}
+							tabIndex='0'
+						>
+							{capitalizedName}
+						</li>
+					);
+				})}
 		</ul>
 	);
 

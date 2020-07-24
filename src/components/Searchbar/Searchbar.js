@@ -47,8 +47,14 @@ const Searchbar = ({
 			{pokemonNameList
 				.filter((p) => p.indexOf(pokemon.toLowerCase().trim()) > -1)
 				.map((pokemonName, index) => {
-					const capitalizedName =
-						pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+					//Format name with multiple words or that have '-'
+					const capitalizedName = pokemonName
+						.split("-")
+						.map(
+							(splitName) =>
+								splitName.charAt(0).toUpperCase() + splitName.slice(1)
+						)
+						.join(" ");
 					return (
 						<li
 							className='autocomplete-choice'

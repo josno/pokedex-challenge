@@ -20,9 +20,13 @@ const PokemonInfo = ({ pokeUrl }) => {
 				.then((response) => response.json())
 				.then((responseJson) => {
 					//Formatting JSON before setting it as state
-					const capitalizedName =
-						responseJson.name.charAt(0).toUpperCase() +
-						responseJson.name.slice(1);
+					const capitalizedName = responseJson.name
+						.split("-")
+						.map(
+							(splitName) =>
+								splitName.charAt(0).toUpperCase() + splitName.slice(1)
+						)
+						.join(" ");
 
 					const checkedImageUrl = !responseJson.sprites.front_default
 						? Image

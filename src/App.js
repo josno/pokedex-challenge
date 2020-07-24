@@ -58,7 +58,8 @@ function App() {
 
 	const lookUpPokemon = (str) => {
 		const newIndex = pokemonList.findIndex(
-			(p) => p.name === str.toLowerCase().trim()
+			//Manage name with multiple words or that have '-'
+			(p) => p.name === str.split(" ").join("-").toLowerCase().trim()
 		);
 
 		if (newIndex === listIndex) {

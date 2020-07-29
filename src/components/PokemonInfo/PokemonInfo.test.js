@@ -22,7 +22,7 @@ describe("PokemonInfo", () => {
 	});
 });
 
-describe.only("PokemonInfo - Testing Hooks", () => {
+describe("PokemonInfo - Testing Hooks", () => {
 	let container = null;
 	beforeEach(() => {
 		// setup a DOM element as a render target
@@ -37,7 +37,7 @@ describe.only("PokemonInfo - Testing Hooks", () => {
 		container = null;
 	});
 
-	it("renders pokemon info", async () => {
+	it("Renders pokemon info with successful fetch", async () => {
 		const pokemon = {
 			id: 25,
 			name: "pikachu",
@@ -73,11 +73,11 @@ describe.only("PokemonInfo - Testing Hooks", () => {
 		expect(container.querySelector("ul").textContent).toContain(
 			`Name: ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}`
 		);
-		// expect(container.querySelector("img").textContent).toBe(
-		// 	"https://pokeapi.co/api/v2/pokemon/25"
-		// );
+
 		expect(container.querySelector("img").src).toBe(
 			pokemon.sprites.front_default
 		);
+
+		global.fetch.mockRestore();
 	});
 });

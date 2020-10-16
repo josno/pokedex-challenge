@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "../../assets/no-image.png";
-import "./PokemonInfo.css";
+import "./PokemonInfo.css"
 
 const PokemonInfo = ({ pokeUrl }) => {
 	const [currentPokemon, setCurrentPokemon] = useState({

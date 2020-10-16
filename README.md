@@ -1,6 +1,7 @@
 # Pokedex App
 
 A web application that uses the open-source poke-api to generate Pokemon by look up.
+Check it out [here](https://pokedex-challenge-smoky.vercel.app/)
 
 ### Status
 

@@ -158,7 +158,7 @@ exports[`Searchbar pokemon list renders a dropdown menu and list of Pokemon when
       ],
     }
   }
-  lick={[MockFunction]}
+  onClick={[MockFunction]}
   pokemonNameList={
     Array [
       "bulbasaur",
